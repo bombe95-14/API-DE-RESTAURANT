@@ -4,18 +4,7 @@ const auth = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 
 exports.createUser = async (req, res, next) => {
-  try {
-    const hash = await bcrypt.hash(req.body.password, 10);
-    const newUser = new User(req.body);
-    newUser.password = hash;
-    const user = await newUser.save();
-    if (!user) {
-      return res.status(400).send("Unable to create new user");
-    }
-    return res.status(200).json(user);
-  } catch (error) {
-    return res.status(500).send(error);
-  }
+  
 };
 
 exports.Login = async (req, res, next) => {

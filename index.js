@@ -15,9 +15,7 @@ mongoose
   .connect(process.env.dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
-  .then(() => console.log("DB connected!"))
-  .catch(() => console.log("Failed to coonnectDB!"));
+  }).catch((e) => console.log("Failed to coonnectDB!"));
 
 app.use(express.json());
 
@@ -36,4 +34,5 @@ port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`listening to port ${port} `);
 });
-module.exports = app;
+
+//module.exports = app;
